@@ -5,12 +5,12 @@ const findOnePair = socks => {
   // check equality of 2 strings (current string against every other string)
 
   // loop over all socks
-    // on first loop, the current_sock is 'blue'
-    // loop over all socks again! <- other_sock
-    // if current_sock === other_sock
-      // return sock
-    // nothing O(n) / O(n^2) / O(log n)
-    // end
+  // on first loop, the current_sock is 'blue'
+  // loop over all socks again! <- other_sock
+  // if current_sock === other_sock
+  // return sock
+  // nothing O(n) / O(n^2) / O(log n)
+  // end
   // end
   // return false
 
@@ -32,24 +32,34 @@ const findOnePair = socks => {
 
   let sock_obj = {};
 
+  // for (let i = 0; i < socks.length; i++) {
+  //   if (sock_obj[socks[i]]) {
+  //     sock_obj[socks[i]]++;
+  //   } else {
+  //     sock_obj[socks[i]] = 1;
+  //   }
+  // }
+
+  // console.log(sock_obj)
+
+  // for (let i = 0; i < Object.values(sock_obj).length; i++) {
+  //   if (sock_obj[socks[i]] === 2) {
+  //     return socks[i];
+  //   } 
+  // }
+  // return false;
+
+  // const socks = ['yellow', 'orange', 'yellow', 'green', 'purple', 'orange', 'blue'];
+
+
   for (let i = 0; i < socks.length; i++) {
     if (sock_obj[socks[i]]) {
-      sock_obj[socks[i]]++;
+      return socks[i];
     } else {
       sock_obj[socks[i]] = 1;
     }
   }
-
-  console.log(sock_obj)
-
-  for (let i = 0; i < Object.values(sock_obj).length; i++) {
-    if (sock_obj[socks[i]] === 2) {
-      return socks[i];
-    } 
-  }
-  return false;
 };
 
-findOnePair(socks);
+console.log(findOnePair(socks));
 
-console.log(`expect yellow, got: ${findOnePair(socks)}`);
